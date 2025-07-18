@@ -9,7 +9,6 @@ A responsive notification panel built using **React**, **Tailwind CSS**, and mod
 - 💬 **Notifications Section** — Recent user actions with icons and timestamps.
 - 🕒 **Activity Timeline** — Visual timeline with avatars and chronological updates.
 - 🧑‍🤝‍🧑 **Contacts List** — Display of recent users or contacts.
-- 🎨 **Dark Mode Support** — Fully compatible with dark theme.
 - 📱 **Responsive** — Works smoothly on mobile, tablet, and desktop.
 
 ---
