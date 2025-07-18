@@ -22,3 +22,4 @@ A responsive notification panel built using **React**, **Tailwind CSS**, and mod
 
    ```bash
    git clone https://github.com/AbdelrahmanHabib24/Show-Ui.git
+   cd Show-Ui
