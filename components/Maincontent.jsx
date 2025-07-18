@@ -87,12 +87,9 @@ export default function MainContent({ searchTerm }) {
           "https://scopey.onrender.com/api/session/sessions"
         );
 
-        console.log("response status:", res.status);
 
         const data = await res.json();
-        console.log("Fetched data:", data); // 🟢 اطبع البيانات الراجعة
 
-        // 👇 عدل حسب شكل البيانات
         if (data && Array.isArray(data.sessions)) {
           setSpendings(data.sessions);
         } else {

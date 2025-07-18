@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useTheme } from "../components/ThemeContext";
 
 export default function Sidebar() {
   const [activeTab, setActiveTab] = useState("Favorites");
@@ -7,9 +6,6 @@ export default function Sidebar() {
   const [activeDashboardItem, setActiveDashboardItem] = useState("Overview");
   const [activePageItem, setActivePageItem] = useState("");
   const [userProfileOpen, setUserProfileOpen] = useState(false);
-
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
 
   const tabItems = {
     Favorites: ["Overview", "Projects"],
@@ -42,9 +38,7 @@ export default function Sidebar() {
       key={name}
       onClick={onClick}
       className={`flex items-center rounded px-3 py-2 cursor-pointer transition-colors ${
-        isActive
-          ? `${isDark ? "bg-gray-700 text-white" : "bg-[#F1F1F1] text-black"} font-medium`
-          : `${isDark ? "text-gray-300" : "text-[#000000CC]"}`
+        isActive ? "bg-[#F1F1F1] text-black font-medium" : "text-[#000000CC]"
       }`}
     >
       <img
@@ -64,9 +58,7 @@ export default function Sidebar() {
       key={name}
       onClick={onClick}
       className={`flex items-center rounded px-3 py-2 cursor-pointer transition-colors ${
-        isActive
-          ? `${isDark ? "text-white font-medium" : "text-black font-medium"}`
-          : `${isDark ? "text-gray-300" : "text-[#000000CC]"}`
+        isActive ? "text-black font-medium" : "text-[#000000CC]"
       }`}
     >
       <img
@@ -89,45 +81,27 @@ export default function Sidebar() {
     >
       <span
         className={`w-2 h-2 rounded-full mr-2 ${
-          activeTabItem === item
-            ? isDark
-              ? "bg-gray-400"
-              : "bg-[#00000077]"
-            : "bg-transparent"
+          activeTabItem === item ? "bg-[#00000077]" : "bg-transparent"
         }`}
       />
-      <span className={`${isDark ? "text-gray-300" : ""}`}>{item}</span>
+      <span>{item}</span>
     </li>
   );
 
   return (
-    <aside className={`w-56 ${isDark ? "bg-[#1a1a1a]" : "bg-white"}`}>
-      <div
-        className={`p-4 border-l h-auto ${
-          isDark ? "border-gray-700" : "border-gray-300"
-        }`}
-      >
+    <aside className="w-56 bg-white">
+      <div className="p-4 border-l h-auto border-gray-300">
         <div className="flex items-center gap-3 mb-6">
           <img
             src="/Frame.svg"
             alt="Profile"
             className="w-8 h-8 rounded-full object-cover"
           />
-          <span
-            className={`text-sm font-semibold ${
-              isDark ? "text-white" : "text-black"
-            }`}
-          >
-            ByeWind
-          </span>
+          <span className="text-sm font-semibold text-black">ByeWind</span>
         </div>
 
         {/* Tab Navigation */}
-        <ul
-          className={`flex gap-6 mb-4 px-2 select-none ${
-            isDark ? "text-gray-500" : "text-[#00000055]"
-          }`}
-        >
+        <ul className="flex gap-6 mb-4 px-2 select-none text-[#00000055]">
           {Object.keys(tabItems).map((tab) => (
             <li
               key={tab}
@@ -136,11 +110,7 @@ export default function Sidebar() {
                 setActiveTabItem(tabItems[tab][0]);
               }}
               className={`cursor-pointer transition hover:opacity-90 ${
-                activeTab === tab
-                  ? isDark
-                    ? "text-white font-semibold"
-                    : "text-[#00000066] font-semibold"
-                  : ""
+                activeTab === tab ? "text-[#00000066] font-semibold" : ""
               }`}
             >
               {tab}
@@ -154,13 +124,7 @@ export default function Sidebar() {
         </nav>
 
         {/* Dashboards */}
-        <h3
-          className={`text-sm px-2 mb-2 ${
-            isDark ? "text-gray-500" : "text-[#00000055]"
-          }`}
-        >
-          Dashboards
-        </h3>
+        <h3 className="text-sm px-2 mb-2 text-[#00000055]">Dashboards</h3>
         <ul className="space-y-1 select-none">
           {dashboards.map(({ name, icon }) =>
             renderListItem(
@@ -173,13 +137,7 @@ export default function Sidebar() {
         </ul>
 
         {/* Pages */}
-        <h3
-          className={`text-sm px-2 mt-6 mb-2 ${
-            isDark ? "text-gray-500" : "text-[#00000055]"
-          }`}
-        >
-          Pages
-        </h3>
+        <h3 className="text-sm px-2 mt-6 mb-2 text-[#00000055]">Pages</h3>
         <ul className="space-y-1 select-none">
           <li>
             <div
@@ -189,11 +147,7 @@ export default function Sidebar() {
               }}
               className={`px-3 py-2 text-[16px] cursor-pointer rounded ${
                 activePageItem === "User Profile"
-                  ? isDark
-                    ? "text-white font-medium"
-                    : "text-black font-medium"
-                  : isDark
-                  ? "text-gray-400"
+                  ? "text-black font-medium"
                   : "text-[#000000AA]"
               }`}
             >
@@ -221,11 +175,7 @@ export default function Sidebar() {
                     onClick={() => setActivePageItem(item)}
                     className={`px-3 py-1 text-sm cursor-pointer rounded ${
                       activePageItem === item
-                        ? isDark
-                          ? "text-white font-medium"
-                          : "text-black font-medium"
-                        : isDark
-                        ? "text-gray-400"
+                        ? "text-black font-medium"
                         : "text-[#000000AA]"
                     }`}
                   >

@@ -1,10 +1,8 @@
-import { useTheme } from "../components/ThemeContext";
 
 export default function Header({ searchTerm, setSearchTerm }) {
-  const { toggleTheme } = useTheme();
 
   return (
-    <header className="flex flex-col sm:flex-row items-center space-x-52 bg-white dark:bg-gray-900 text-black dark:text-white mx-auto max-w-[1500px] border-b border-gray-200 px-4 sm:px-6 py-4 gap-y-4 sm:gap-y-0">
+    <header className="flex flex-col sm:flex-row items-center space-x-52 bg-white text-black  mx-auto max-w-[1500px] border-b border-gray-200 px-4 sm:px-6 py-4 gap-y-4 sm:gap-y-0">
       
       {/* Breadcrumb Section - Left Side */}
       <div className="flex flex-wrap items-center space-x-2 sm:space-x-4">
@@ -39,7 +37,7 @@ export default function Header({ searchTerm, setSearchTerm }) {
 
         {/* Icon Buttons */}
         <div className="flex items-center space-x-4 sm:space-x-6">
-          <button onClick={toggleTheme}>
+          <button >
             <img src="/lightmode.svg" alt="Toggle Theme" />
           </button>
           <button>
